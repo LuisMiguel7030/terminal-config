@@ -94,20 +94,40 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+function ui(){
+	if [ ! -n "$1" ]; then
+		cd ~/Documents/work/ui
+	else
+		cd ~/Documents/work/ui/spa-$1
+	fi
+}
+
+function common(){
+	if [ ! -n "$1" ]; then
+		cd ~/Documents/work/common
+	else
+		cd ~/Documents/work/common/swa-$1
+	fi
+}
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Alias for work
 alias cdwork="cd ~/Documents/work"
-alias cdui="cd ~/Documents/work/ui"
-alias cdcommon="cd ~/Documents/work/common"
+#alias cdui="cd ~/Documents/work/ui"
+#alias cdcommon="cd ~/Documents/work/common"
 
 # List of yarn links
 alias yll='ls -l node_modules/ | egrep "^l"'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
